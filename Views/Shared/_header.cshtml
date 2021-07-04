@@ -1,0 +1,31 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration _configuration
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand" href="/Task/Index">
+                <img srcset="/images/logo2.png" width="30px" height="30px" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @_configuration["AppName"]
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav">
+                    <partial name="_LoginInfo" />
+                </ul>
+                <ul class="navbar-nav flex-grow-1">
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="TaskHome">Lista zadań</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="Create">Dodaj zadanie</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

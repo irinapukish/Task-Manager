@@ -1,0 +1,47 @@
+﻿@model IEnumerable<TaskManager.Models.TaskModel>
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <h3 class="display-4 text-center">Lista zadań</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ExecutionDate)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td style="width:40%">
+                        <img srcset="/Images/point3.png" width="30px" height="30px" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExecutionDate)
+                    </td>
+
+                    <td style="width:35%">
+                        <a href='@Url.Action("Done", new { id = item.TaskId })' class="btn btn-success"><i class="fas fa-check-circle"></i></a>
+                        <a href='@Url.Action("Details", new { id = item.TaskId })' class="btn btn-info"><i class="fas fa-info-circle"></i></a>
+                        <a href='@Url.Action("Edit", new { id = item.TaskId })' class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                        <a href='@Url.Action("Delete", new { id = item.TaskId })' class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
